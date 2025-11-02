@@ -134,4 +134,25 @@ function Init() {
             pane: '<p>user ipsum dolor sit amet</p>',
         });
     }
+
+    // Polyline measure control
+    var polylineMeasure = L.control.polylineMeasure({
+        position: 'topright',
+        unit: 'metres',
+        showBearings: true,
+        clearMeasurementsOnStop: false,
+        showClearControl: true,
+        showUnitControl: true
+    }).addTo(myMap);
+
+    // add Leaflet-Geoman controls with some options to the map  
+    myMap.pm.addControls({
+        position: 'topright',
+        drawCircleMarker: false,
+        rotateMode: false,
+    });
+
+    myMap.on('pm:create', e => {
+        console.log(e);
+    });
 }
